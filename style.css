@@ -181,6 +181,10 @@ form{
   cursor: pointer;
 }
 
+.custom-checkbox svg{
+    fill: var(--accent-color);
+}
+
 
 
 input[type="checkbox"]:checked ~ .custom-checkbox {
@@ -227,9 +231,9 @@ input[type="checkbox"] {
 /* RESPONSIVE CODE FOR MOBILE  */
 
 @media(max-width: 500px){
-    html{
-        /* font-size: 12pt; */
-    }
+    /* html{
+         font-size: 12pt; 
+    } */
 
     #add-button{
         position: unset;
