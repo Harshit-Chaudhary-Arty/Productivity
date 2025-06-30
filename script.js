@@ -61,3 +61,62 @@ function getTasks(){
     const tasks = localStorage.getItem("tasks") || "[]"; //if the local storage is empty then it creates empty array instead of giving null
     return JSON.parse(tasks);
 }
+
+
+//Getting and applying users Date for displaying next dates.
+
+
+let userDate;
+let userDateNextDay;
+let userMonth;
+let userNextMonth;
+
+
+function updateDate(){
+
+    //current date
+    userDate = new Date().getDate();
+    let userMonthIndex = new Date().getMonth();
+
+    let months = ["January", "February", "March", "April", "May", "June", 
+                  "July", "August", "September", "October", "November", "December"];
+
+    userMonth = months [userMonthIndex];
+
+    //date next day
+    let tomorrow = new Date();
+    tomorrow.setDate(new Date().getDate() + 1);
+    userDateNextDay = tomorrow.getDate();
+
+    //next month
+    let userNextMonthIndex = tomorrow.getMonth();
+    userNextMonth = months[userNextMonthIndex];
+
+}
+
+function displayDate(){
+
+    //Current Day
+    let displayDate = document.getElementById('date');
+    let displayMonth = document.getElementById('month');
+    
+    displayDate.textContent = userDate;
+    displayMonth.textContent = userMonth;
+
+
+    //next Dat
+    let displayDateNextDay = document.getElementById('dateNextDay');
+    let displayNextMonth = document.getElementById('NextMonth');
+
+    displayDateNextDay.textContent = userDateNextDay;
+    displayNextMonth.textContent = userNextMonth;
+
+    
+}
+
+
+
+
+
+updateDate();
+displayDate();
