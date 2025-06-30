@@ -18,8 +18,21 @@
 - UI styling updated to enhance checkbox visibility.
 
 
+
 ## [0.3.0] - 2025-06-30
 
 ### Added
 - Task delete functionality to remove individual tasks from the list.
 - UI styling updated to enhance checkbox visibility.
+
+
+
+
+## [0.4.0] - 2025-06-30
+
+### Added
+- Dropdown in task UI to select task type (UI only, no functionality).
+- Button to add images to a task (UI only).
+
+### Changed
+- Minor HTML and CSS updates to support new task UI components.
