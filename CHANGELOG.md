@@ -22,3 +22,4 @@
 
 ### Added
 - Task delete functionality to remove individual tasks from the list.
+- UI styling updated to enhance checkbox visibility.
