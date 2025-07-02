@@ -36,3 +36,17 @@
 
 ### Changed
 - Minor HTML and CSS updates to support new task UI components.
+
+
+
+
+## [0.5.0] - 2025-07-02
+
+### Added
+ - Dropdown functionality for selecting task type with JavaScript. 
+ - Dynamic update of the selected task type label based on user choice.
+ - Accent color indicator that changes to match the selected type.
+ - Logic to close dropdown when clicking outside the menu.
+
+### Changed
+ - Dropdown behavior logic shifted from pure CSS hover-based to JavaScript-controlled   toggle.

@@ -128,9 +128,37 @@ function displayDate(){
     
 }
 
+function typeSelection() {
+    const types = document.querySelectorAll('.typesDropdown li');
+    const labelWrapper = document.querySelector('.typesLabel');
+    const labelText = document.querySelector('.labelText');
+    const dropdown = document.querySelector('.typesDropdown');
+    const selectedAccent = document.getElementById('selectedAccent');
 
+    labelWrapper.addEventListener('click', () => {
+        dropdown.classList.toggle('show');
+    });
 
+    types.forEach((type) => {
+        type.addEventListener('click', () => {
+            const selectedType = type.textContent.trim();
+            labelText.textContent = selectedType;
 
+            const accentBox = type.querySelector('.accentBox');
+            const color = getComputedStyle(accentBox).backgroundColor;
+            selectedAccent.style.backgroundColor = color;
+
+            dropdown.classList.remove('show');
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!labelWrapper.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('show');
+        }
+    });
+}
+typeSelection();
 
 updateDate();
 displayDate();
