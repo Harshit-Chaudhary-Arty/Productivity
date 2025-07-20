@@ -50,3 +50,17 @@
 
 ### Changed
  - Dropdown behavior logic shifted from pure CSS hover-based to JavaScript-controlled   toggle.
+
+
+
+
+## [0.6.0] - 2025-07-20
+
+### Added
+- Image upload feature for tasks with support for image preview via modal.
+- Image modal UI for viewing enlarged images (with escape key and background click to close).
+- Task type color indicators and badges to visually distinguish task types.
+
+### Changed
+- Refactored task structure to include modular task components as objects.
+- Updated dropdown and task UI to support image + type badges.

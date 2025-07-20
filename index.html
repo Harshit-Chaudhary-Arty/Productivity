@@ -8,67 +8,37 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Enlarged task image">
+        </div>
+    </div>
+
     <div class="wrapper">
         <div class="date-wrapper">
             <h1 id="date">29</h1>
             <h3 id="month">JULY</h3>
         </div>
-    
-
         
         <ul id="task-list">
-            <!-- <li class="task">
-                <input type="checkbox" id="task-1">
-                <label class="custom-checkbox" for="task-1" >
-                    <svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                    </svg>
-                </label>
-                <label for="task-1" class="task-text"> DHA-1 MOS: MAKE DIAGRAMS ON A4 SHEET.</label>
-                <button  class="delete-button"><svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
-            </li>
-            <li class="task">
-                <input type="checkbox" id="task-2">
-                <label class="custom-checkbox" for="task-2" >
-                    <svg fill="var(--text-muted)"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                    </svg>
-                </label>
-                <label for="task-2" class="task-text"> DHA-2 MOS:4 SHEET.</label>
-                <button class="delete-button"><svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
-            </li>
-            <li class="task">
-                <input type="checkbox" id="task-3">
-                <label class="custom-checkbox" for="task-3" >
-                    <svg fill="var(--text-muted)"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                    </svg>
-                </label>
-                <label for="task-3" class="task-text"> DHA-2 uuiwef wfuhwuiea uwhfiuawehj  wfeuhweh f 9wuefh 9u huu h  uu hMOS:4 SHEET.</label>
-                <button class="delete-button"><svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
-            </li> -->
+            <!-- Tasks will be dynamically added here -->
         </ul>
+        
         <form action="">
-            <input type="text" id="input-task" placeholder="Add question" autocomplete="off">
+            <input type="text" id="input-task" placeholder="Add task" autocomplete="off">
             
-            <!-- ATTACHMENTS -->
             <div class="options"> 
-
-                <!-- DROPDOWN FOR TASK TYPE -->
                 <div class="taskType">
-
                     <span class="typesLabel">
                       <div class="accentBox" id="selectedAccent"></div>
                       <span class="labelText">Select Type</span>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path></svg>
                     </span> 
 
-
-                    <!-- <span class="typesLabel">
-                        Select Type 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path></svg>
-                    </span> -->
                     <ul class="typesDropdown">
                         <li id="type1" class="types"> <div class="accentBox" id="boxType1"></div> DHA  </li>
                         <li id="type2" class="types"> <div class="accentBox" id="boxType2"></div> CA   </li>
@@ -77,70 +47,18 @@
                     </ul>
                 </div>
                 
-                <!-- BUTTON TO ADD IMAGE ATTACHMENTS -->
-                <button id="addImage-button"> Add Image <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 15V18H24V20H21V23H19V20H16V18H19V15H21ZM21.0082 3C21.556 3 22 3.44495 22 3.9934L22.0007 13.3417C21.3749 13.1204 20.7015 13 20 13V5H4L4.001 19L13.2929 9.70715C13.6528 9.34604 14.22 9.31823 14.6123 9.62322L14.7065 9.70772L18.2521 13.2586C15.791 14.0069 14 16.2943 14 19C14 19.7015 14.1204 20.3749 14.3417 21.0007L2.9918 21C2.44405 21 2 20.5551 2 20.0066V3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082ZM8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7Z"></path></svg>
-                </button>
-
-
-
+                <input type="file" id="imageInput" accept="image/*" hidden>
+                <label for="imageInput" id="addImage-button">
+                Add Image
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M21 15V18H24V20H21V23H19V20H16V18H19V15H21ZM21.0082 3C21.556 3 22 3.44495 22 3.9934L22.0007 13.3417C21.3749 13.1204 20.7015 13 20 13V5H4L4.001 19L13.2929 9.70715C13.6528 9.34604 14.22 9.31823 14.6123 9.62322L14.7065 9.70772L18.2521 13.2586C15.791 14.0069 14 16.2943 14 19C14 19.7015 14.1204 20.3749 14.3417 21.0007L2.9918 21C2.44405 21 2 20.5551 2 20.0066V3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082ZM8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7Z"></path>
+                </svg>
+                </label>
             </div>
             <button id="add-button">ADD <i class="ri-add-line"></i></button>
         </form>
     </div>
 
-    <div class="wrapper" id="wrapperNextDay">
-        <div class="date-wrapper">
-            <h1 id="dateNextDay">29</h1>
-            <h3 id="NextMonth">JULY</h3>
-        </div>
-    
-
-        
-        <ul id="task-list">
-            <!-- <li class="task">
-                <input type="checkbox" id="task-1">
-                <label class="custom-checkbox" for="task-1" >
-                    <svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                    </svg>
-                </label>
-                <label for="task-1" class="task-text"> DHA-1 MOS: MAKE DIAGRAMS ON A4 SHEET.</label>
-                <button  class="delete-button"><svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
-            </li>
-            <li class="task">
-                <input type="checkbox" id="task-2">
-                <label class="custom-checkbox" for="task-2" >
-                    <svg fill="var(--text-muted)"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                    </svg>
-                </label>
-                <label for="task-2" class="task-text"> DHA-2 MOS:4 SHEET.</label>
-                <button class="delete-button"><svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
-            </li>
-            <li class="task">
-                <input type="checkbox" id="task-3">
-                <label class="custom-checkbox" for="task-3" >
-                    <svg fill="var(--text-muted)"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                    </svg>
-                </label>
-                <label for="task-3" class="task-text"> DHA-2 uuiwef wfuhwuiea uwhfiuawehj  wfeuhweh f 9wuefh 9u huu h  uu hMOS:4 SHEET.</label>
-                <button class="delete-button"><svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
-            </li> -->
-        </ul>
-        <form action="">
-            <input type="text" id="input-task" placeholder="Add question" autocomplete="off">
-            <button id="add-button">ADD <i class="ri-add-line"></i></button>
-        </form>
-    </div>
-   
-
-
-
-
-
-
-
-
-
 <script src="script.js"></script>
-
 </body>
 </html>

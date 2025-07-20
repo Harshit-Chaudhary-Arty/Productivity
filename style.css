@@ -9,7 +9,40 @@
   --hover-color: #3f3f3f;
 }
 
+/* Image Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
+.modal.show {
+  display: flex;
+  opacity: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+}
+
+#modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
 
 *{
     margin: 0;
@@ -178,7 +211,87 @@ form{
   margin-right: 10px;
 }
 
+/* Additional CSS for task objects - Add this to your existing style.css */
 
+.task-type-indicator {
+    width: 4px;
+    height: 100%;
+    border-radius: 15px 0 0 15px;
+    flex-shrink: 0;
+}
+
+.task-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0;
+    padding: 10px 0;
+}
+
+.task-meta {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.task-type {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.task-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 8px;
+    align-self: flex-start;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(160, 160, 160, 0.3);
+}
+
+/* Update existing task class to work with new structure */
+.task {
+    margin-top: 10px;
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    display: flex;
+    align-items: stretch; /* Changed from center to stretch */
+    gap: 0; /* Removed gap to make type indicator seamless */
+}
+
+.task .task-text {
+    font-size: 18pt;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    margin: 0; /* Remove default margin */
+}
+
+.custom-checkbox {
+    background-color: var(--background);
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    border: 2px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 0 15px; /* Adjusted margin */
+    transition: 200ms ease;
+    cursor: pointer;
+    align-self: center;
+}
 /*
 .taskType:hover .typesDropdown {
     display: flex;
@@ -409,4 +522,22 @@ input[type="checkbox"] {
     max-width: 95%;
     }
 
+    .modal-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+}
+
+
+.task-type-badge {
+    background-color: var(--accent-color); /* Will be overridden by inline style */
+    color: #000000; /* Black text */
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
 }
