@@ -62,7 +62,6 @@ html{
 body{
     min-width: 100vh;
     padding: 10px;
-    /* background-color:rgb(26, 26, 26); */
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -84,8 +83,6 @@ body{
 }
 
 .date-wrapper h1{
-    /* margin-top: 0px; */
-    /* margin-bottom: 50px; */
     margin-left: 10px;
     font-size: 5rem;
     font-weight: 400;
@@ -146,23 +143,36 @@ form{
     height: auto;
 }
 
-
 .options{
     width: 100%;
     margin-top: 12px;
     display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* First row: Course and Add Link */
+.options-row {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* padding: 30px 0; */
+    /* gap: 800px; */
 }
 
-
-.taskType{
-    width: 48%; 
+/* Second row: Type and Add Image */
+.options-row-second {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* gap: 800px; */
 }
 
+.taskType, .courseType{
+    width: 49%;
+    position: relative;
+}
 
-.typesLabel{
+.typesLabel, .courseLabel{
     background-color: var(--primary-color);
     display: flex;
     flex-direction: row;
@@ -173,37 +183,37 @@ form{
     color: var(--text-muted);
     align-items: center;
     justify-content: space-evenly;
+    cursor: pointer;
 }
 
-.typesLabel:hover{
+.typesLabel:hover, .courseLabel:hover{
     background-color: var(--secondary-color);
     color: var(--text-color);
     transition: 200ms ease;
 }
 
-
-.typesLabel svg{
+.typesLabel svg, .courseLabel svg{
     height: 25px;
     width: 25px;
     font-size: 25px;
 }
 
-.typesDropdown {
+.typesDropdown, .courseDropdown {
   display: none;
   flex-direction: column;
   position: absolute;
-  width: 48%;
+  width: 100%;
   background-color: var(--primary-color);
   border-top: 2px solid var(--background);
   border-radius: 15px;
   z-index: 100;
 }
 
-.typesDropdown.show {
+.typesDropdown.show, .courseDropdown.show {
   display: flex;
 }
 
-#selectedAccent {
+#selectedAccent, #selectedCourseAccent {
   background-color: var(--text-muted);
   border-radius: 25%;
   height: 16px;
@@ -211,116 +221,21 @@ form{
   margin-right: 10px;
 }
 
-/* Additional CSS for task objects - Add this to your existing style.css */
-
-.task-type-indicator {
-    width: 4px;
-    height: 100%;
-    border-radius: 15px 0 0 15px;
-    flex-shrink: 0;
-}
-
-.task-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    min-width: 0;
-    padding: 10px 0;
-}
-
-.task-meta {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-}
-
-.task-type {
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.task-image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-top: 8px;
-    align-self: flex-start;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.task-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(160, 160, 160, 0.3);
-}
-
-/* Update existing task class to work with new structure */
-.task {
-    margin-top: 10px;
-    background-color: var(--primary-color);
-    border-radius: 15px;
-    display: flex;
-    align-items: stretch; /* Changed from center to stretch */
-    gap: 0; /* Removed gap to make type indicator seamless */
-}
-
-.task .task-text {
-    font-size: 18pt;
-    flex-grow: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0;
-    margin: 0; /* Remove default margin */
-}
-
-.custom-checkbox {
-    background-color: var(--background);
-    border-radius: 50%;
-    min-height: 20px;
-    min-width: 20px;
-    border: 2px solid var(--border-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    margin: 0 15px; /* Adjusted margin */
-    transition: 200ms ease;
-    cursor: pointer;
-    align-self: center;
-}
-/*
-.taskType:hover .typesDropdown {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    /* padding: 10px 0;
-    /* margin: 3px 0; 
-    width: 48%;
-    background-color: var(--primary-color);
-    border-top: 2px solid var(--background);
-    border-radius: 15px;
-}
-*/
-
-.typesDropdown{
+.typesDropdown, .courseDropdown{
     display: none;
 }
 
-.typesDropdown li{
+.typesDropdown li, .courseDropdown li{
     display: block;
     padding: 10px 40px;
-    /* margin-bottom: 10px; */
     display: flex;
     align-items: center;
     color: var(--text-muted);
     border-radius: 15px;
+    cursor: pointer;
 }
 
-.typesDropdown li:hover{
+.typesDropdown li:hover, .courseDropdown li:hover{
     background-color: var(--secondary-color);
     color: var(--text-color);
     transition: 200ms ease;
@@ -328,7 +243,7 @@ form{
 
 /* ACCENT BOXES */
 
-.typesDropdown li .accentBox{
+.typesDropdown li .accentBox, .courseDropdown li .accentBox{
     background-color: var(--text-muted);
     border-radius: 25%;
     height: 16px;
@@ -353,30 +268,52 @@ form{
     background-color: #DA1143;
 }
 
-/* ADD IMG BUTTON */
+/* Course color boxes 
+.courseDropdown li #boxCourse1{ background-color: #FF6B6B; }
+.courseDropdown li #boxCourse2{ background-color: #4ECDC4; }
+.courseDropdown li #boxCourse3{ background-color: #45B7D1; }
+.courseDropdown li #boxCourse4{ background-color: #96CEB4; }
+.courseDropdown li #boxCourse5{ background-color: #FFEAA7; }
+.courseDropdown li #boxCourse6{ background-color: #DDA0DD; }
+.courseDropdown li #boxCourse7{ background-color: #98D8C8; }
+.courseDropdown li #boxCourse8{ background-color: #F7DC6F; }
+.courseDropdown li #boxCourse9{ background-color: #FF8A80; }
+.courseDropdown li #boxCourse10{ background-color: #80CBC4; }
+.courseDropdown li #boxCourse11{ background-color: #9FA8DA; }
+.courseDropdown li #boxCourse12{ background-color: #C5E1A5; }
+.courseDropdown li #boxCourse13{ background-color: #FFAB91; }
+.courseDropdown li #boxCourse14{ background-color: #B39DDB; }
+.courseDropdown li #boxCourse15{ background-color: #81C784; }
+.courseDropdown li #boxCourse16{ background-color: #FFB74D; }
+*/
 
-#addImage-button{
+.courseDropdown li #boxCourse1{ background-color: var(--hover-color); }
+
+/* ADD IMG & LINK BUTTON */
+
+#addImage-button, #addLink-button{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    width: 50%;
+    width: 49%;
     background-color: var(--primary-color);
     font: inherit;
     border: none;
     border-radius: 15px;
     color: var(--text-muted);
     padding: 20px;
-    height: auto;  
+    height: auto;
+    cursor: pointer;
 }
 
-#addImage-button svg{
+#addImage-button svg, #addLink-button svg{
     height: 25px;
     width: 25px;
     font-size: 25px;
 }
 
-#addImage-button:hover{
+#addImage-button:hover, #addLink-button:hover{
     background-color: var(--secondary-color);
     color: var(--text-color);
     transition: 200ms ease;
@@ -388,123 +325,281 @@ form{
     transition: 200ms ease;
 }
 
-.task{
+/* UPDATED TASK LAYOUT */
+.task {
     margin-top: 10px;
-    /* padding: 0 16px; */
     background-color: var(--primary-color);
     border-radius: 15px;
     display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.task .task-text{
-    /* padding: 20px; */
-    font-size: 18pt;
-    /* padding-right: 0px; */
-    flex-grow: 1;
-
-    white-space: nowrap;
+    flex-direction: column;
     overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0;
 }
 
-.delete-button{
-    height: 100px;
-    /* width: 10%; */
-    padding: 0 20px;
-    /* padding-left:  ; */
-    border: none;
+.task-header {
     display: flex;
-    background-color: var(--primary-color);
-    justify-content: center;
     align-items: center;
+    padding: 20px;
     cursor: pointer;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    
+    transition: background-color 0.2s ease;
 }
 
-.delete-button:hover{
-    background-color: var(--hover-color);
-    transition: 200ms ease;
-
+.task-header:hover {
+    background-color: var(--secondary-color);
 }
-.delete-button:hover svg{
-    fill: var(--text-color);
-    transition: 200ms ease;
+
+.task-type-badge {
+    background-color: var(--text-muted);
+    color: #000000;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 500;
+    /* letter-spacing: 1px; */
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-right: 22px;
+    flex-shrink: 0;
+    min-width: 60px;
+    text-align: center;
+}
+
+.task-course-name {
+    flex-grow: 1;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.task-dropdown-arrow {
+    width: 24px;
+    height: 24px;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.task-dropdown-arrow.expanded {
+    transform: rotate(180deg);
+}
+
+.task-content {
+    display: none;
+    padding: 20px;
+    background-color: var(--primary-color);
+}
+
+.task-content.expanded {
+    display: block;
+}
+
+.task-details {
+    margin-bottom: 15px;
+}
+
+.task-text {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.task-meta {
+    display: flex;
+    /* align-items: center; */
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.task-left-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .custom-checkbox {
-  background-color:var(--background);
-  border-radius: 50%;
-  min-height: 20px;
-  min-width: 20px;
-  border: 2px solid var(--border-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  margin-left: 20px;
-  transition: 200ms ease;
-  cursor: pointer;
+    background-color: var(--background);
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    border: 2px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: 200ms ease;
+    cursor: pointer;
 }
 
-.custom-checkbox svg{
+.custom-checkbox svg {
     fill: var(--accent-color);
 }
 
-
-
-input[type="checkbox"]:checked ~ .custom-checkbox {
-  background-color: var(--text-muted);
-  color: var(--background);
-  /* transition: 200px; */
-
+input[type="checkbox"]:checked ~ .task-content .custom-checkbox {
+    background-color: var(--text-muted);
+    color: var(--background);
 }
 
-input[type="checkbox"]:checked ~ .custom-checkbox svg{
-  fill: var(--accent-color);
-  /* transition: 200px; */
+input[type="checkbox"]:checked ~ .task-content .custom-checkbox svg {
+    fill: var(--accent-color);
 }
 
-input[type="checkbox"]:checked ~ .task-text {
-  text-decoration: line-through;
-  color: var(--accent-color);
-  /* transition: 200px; */
-}
-
-input[type="checkbox"]:checked ~ .delete-button {
-  background-color: var(--primary-color);
-}
-
-input[type="checkbox"]:checked ~ .delete-button svg{
-  fill: var(--accent-color);
-  /* transition: 200px; */
+input[type="checkbox"]:checked ~ .task-content .task-text {
+    text-decoration: line-through;
+    color: var(--accent-color);
 }
 
 input[type="checkbox"] {
-  display: none;
-  /* transition: 200px; */
+    display: none;
 }
 
-.task-text::selection {
-  background: var(--accent-color);
-  color: var(--text-color);
+.task-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.task-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(160, 160, 160, 0.3);
+}
 
+.task-link {
+    display: inline-flex;
+    align-items: center;
+    color: #00C8FF;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 4px 8px;
+    background-color: rgba(0, 200, 255, 0.1);
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
 
+.task-link:hover {
+    background-color: rgba(0, 200, 255, 0.2);
+}
 
+.task-link svg {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.delete-button:hover {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+}
+
+.delete-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Link Input Modal */
+.link-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.link-modal-content {
+    background-color: var(--primary-color);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.link-modal h3 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.link-modal input {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.link-modal input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.link-modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.link-modal button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.link-modal .confirm-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.link-modal .confirm-btn:hover {
+    background-color: #0099CC;
+}
+
+.link-modal .cancel-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.link-modal .cancel-btn:hover {
+    background-color: var(--hover-color);
+}
 
 /* RESPONSIVE CODE FOR MOBILE  */
 
 @media(max-width: 500px){
-    /* html{
-         font-size: 12pt; 
-    } */
-
     #add-button{
         position: unset;
         width: 100%;
@@ -512,14 +607,8 @@ input[type="checkbox"] {
         height: auto;
     }
 
-    .task .task-text{
-        padding: 20px;
-        font-size: 18pt;
-
-    }
-
     .wrapper{
-    max-width: 95%;
+        max-width: 95%;
     }
 
     .modal-content {
@@ -527,17 +616,55 @@ input[type="checkbox"] {
         max-height: 95%;
     }
 
-}
+    /* Keep the same 2x2 layout in mobile */
+    .options-row, .options-row-second {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 8px; /* Slightly smaller gap for mobile */
+    }
 
+    .taskType, .courseType, #addImage-button, #addLink-button {
+        width: 48%;
+    }
 
-.task-type-badge {
-    background-color: var(--accent-color); /* Will be overridden by inline style */
-    color: #000000; /* Black text */
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 8px;
-    border-radius: 6px;
-    display: inline-block;
+    /* Adjust padding for mobile to fit better */
+    .typesLabel, .courseLabel, #addImage-button, #addLink-button {
+        padding: 15px 10px;
+        font-size: 14px;
+    }
+
+    .typesLabel svg, .courseLabel svg, #addImage-button svg, #addLink-button svg {
+        height: 20px;
+        width: 20px;
+    }
+
+    /* Adjust dropdown text size for mobile */
+    .typesDropdown li, .courseDropdown li {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .task-header {
+        padding: 15px;
+    }
+
+    .task-type-badge {
+        padding: 6px 12px;
+        margin-right: 15px;
+        font-size: 10px;
+        min-width: 50px;
+        text-align: center;
+    }
+
+    .task-course-name {
+        font-size: 16px;
+    }
+
+    .task-content {
+        padding: 15px;
+    }
+
+    .task-text {
+        font-size: 14px;
+    }
 }

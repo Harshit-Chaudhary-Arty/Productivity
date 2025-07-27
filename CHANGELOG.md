@@ -64,3 +64,26 @@
 ### Changed
 - Refactored task structure to include modular task components as objects.
 - Updated dropdown and task UI to support image + type badges.
+
+
+
+
+## [0.7.0] - 2025-07-27
+
+### Added
+
+- Course selection dropdown with predefined courses
+- Link attachment feature with URL validation modal for adding external links to tasks
+- Collapsible task layout with expandable header/content structure
+
+### Changed
+
+- Redesigned form options layout with "Add link" and "Select Course"
+- Task display architecture completely redesigned with header/content separation
+- Tasks now show minimal information by default (taks type + course name) with detailed view on expansion
+
+### Enhanced
+
+- Task data structure now includes course information and expansion state
+- Better organization of task metadata (links, images, actions)
+- Improved user experience with less visual clutter and more intuitive interactions
