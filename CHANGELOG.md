@@ -87,3 +87,22 @@
 - Task data structure now includes course information and expansion state
 - Better organization of task metadata (links, images, actions)
 - Improved user experience with less visual clutter and more intuitive interactions
+
+
+
+
+
+## [0.8.0] - 2025-07-31
+
+### Added
+- Firebase integration to enable real-time sync of tasks across devices.
+- Included Firebase App and Realtime Database SDK scripts in `index.html`.
+- New logic in `script.js` to:
+  - Upload tasks (with type, course, image, and link) to Firebase.
+  - Fetch and render tasks from Firebase on page load.
+  - Delete tasks from Firebase.
+
+### Changed
+- Replaced localStorage-based task management with Firebase Realtime Database operations.
+- Modularized Firebase-related code in `script.js` for better maintainability.
+- Adjusted event logic to ensure UI stays in sync with Firebase data.
