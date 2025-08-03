@@ -122,3 +122,11 @@
 ### Fixed
 - Global toggle bug: previously, toggling one task's checkbox affected all users
 - Now toggles are local-only and no longer synced to Firebase
+
+
+
+
+## [0.9.1] - 2025-08-03
+
+### Added
+- Alert modal with warning icon to prompt user when task is added without description

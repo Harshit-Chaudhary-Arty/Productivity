@@ -69,7 +69,11 @@ function renderTasks() {
 // ===== ADD TASK TO FIREBASE =====
 function addNewTask() {
   const taskText = document.getElementById('input-task').value.trim();
-  if (taskText === "") return;
+  if (taskText === "") {
+    openAlertModal();
+    return;
+  }
+
 
   const newTask = {
     id: Date.now(),
@@ -86,6 +90,8 @@ function addNewTask() {
 
   db.ref("tasks/" + newTask.id).set(newTask);
   resetForm();
+
+
 
   //   if (taskText === "") {
   //   alert("⚠️ Please enter a task description.");
@@ -331,4 +337,16 @@ function setupCourseDropdown() {
       dropdown.classList.remove('show');
     }
   });
+}
+
+function openAlertModal() {
+  const modal = document.getElementById('alertModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAlertModal() {
+  const modal = document.getElementById('alertModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
 }

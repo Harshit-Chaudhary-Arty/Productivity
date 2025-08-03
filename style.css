@@ -719,3 +719,65 @@ input[type="checkbox"] {
         font-size: 14px;
     }
 }
+
+
+/* Alert Modal Style */
+#alertModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+#alertModal .link-modal-content {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 30px 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+#alertModal h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* #alertModal h3::before {
+  content: "⚠️";
+  font-size: 24px;
+} */
+
+#alertModal p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+#alertModal .confirm-btn {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#alertModal .confirm-btn:hover {
+  background-color: var(--hover-color);
+}
