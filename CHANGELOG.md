@@ -106,3 +106,19 @@
 - Replaced localStorage-based task management with Firebase Realtime Database operations.
 - Modularized Firebase-related code in `script.js` for better maintainability.
 - Adjusted event logic to ensure UI stays in sync with Firebase data.
+
+
+
+
+## [0.9.0] - 2025-08-03
+
+### Added
+- Full course names along with course code displayed in dropdown 
+
+### Changed
+- Refined CSS to prevent course labels from resizing and wrapping
+- Added text-overflow ellipsis to keep label size consistent
+
+### Fixed
+- Global toggle bug: previously, toggling one task's checkbox affected all users
+- Now toggles are local-only and no longer synced to Firebase

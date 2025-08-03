@@ -21,6 +21,7 @@ let selectedCourse = "Select Course";
 let selectedCourseColor = "#a0a0a0";
 let selectedImage = null;
 let selectedLink = null;
+let localExpansionState = {};  // 🔥 NEW
 
 // ===== START THE APP =====
 document.addEventListener('DOMContentLoaded', function () {
@@ -48,9 +49,20 @@ function displayTasks() {
     snapshot.forEach(child => {
       const task = child.val();
       tasks.push(task);
-      const taskHTML = createTaskHTML(task, tasks.length - 1);
-      taskList.appendChild(taskHTML);
     });
+
+    renderTasks();
+  });
+}
+
+// ===== RENDER ALL TASKS =====
+function renderTasks() {
+  const taskList = document.getElementById('task-list');
+  taskList.innerHTML = "";
+
+  tasks.forEach((task, index) => {
+    const taskHTML = createTaskHTML(task, index);
+    taskList.appendChild(taskHTML);
   });
 }
 
@@ -68,12 +80,17 @@ function addNewTask() {
     courseColor: selectedCourseColor,
     image: selectedImage,
     link: selectedLink,
-    completed: false,
-    expanded: false
+    completed: false
+    // ❌ No "expanded"
   };
 
   db.ref("tasks/" + newTask.id).set(newTask);
   resetForm();
+
+  //   if (taskText === "") {
+  //   alert("⚠️ Please enter a task description.");
+  //   return;
+  // }
 }
 
 // ===== TOGGLE COMPLETED =====
@@ -120,18 +137,19 @@ function createTaskHTML(task, index) {
   }
 
   const courseName = task.course && task.course !== "Select Course" ? task.course : "No Course";
-  const arrowClass = task.expanded ? "expanded" : "";
+  const isExpanded = localExpansionState[task.id] || false;
+  const arrowClass = isExpanded ? "expanded" : "";
 
   taskHeader.innerHTML = `
-        ${typeBadgeHTML}
-        <div class="task-course-name">${courseName}</div>
-        <svg class="task-dropdown-arrow ${arrowClass}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
-        </svg>
-    `;
+    ${typeBadgeHTML}
+    <div class="task-course-name">${courseName}</div>
+    <svg class="task-dropdown-arrow ${arrowClass}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
+    </svg>
+  `;
 
   const taskContent = document.createElement("div");
-  taskContent.className = `task-content ${task.expanded ? 'expanded' : ''}`;
+  taskContent.className = `task-content ${isExpanded ? 'expanded' : ''}`;
 
   let imageHTML = "";
   if (task.image) {
@@ -147,29 +165,24 @@ function createTaskHTML(task, index) {
   }
 
   taskContent.innerHTML = `
-        <input type="checkbox" id="task-${index}" ${task.completed ? 'checked' : ''} onchange="toggleTask(${index})">
-        <div class="task-details">
-            <div class="task-text">${task.text}</div>
-            <div class="task-meta">
-                ${linkHTML}
-                ${imageHTML}
-            </div>
-        </div>
-        <div class="task-actions">
-            <div class="task-left-actions">
-                <label class="custom-checkbox" for="task-${index}">
-                    <svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
-                        <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
-                    </svg>
-                </label>
-            </div>
-            <button class="delete-button" onclick="deleteTask(${index})">
-                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
-                    <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
-                </svg>
-            </button>
-        </div>
-    `;
+    <input type="checkbox" id="task-${index}" ${task.completed ? 'checked' : ''} onchange="toggleTask(${index})">
+    <div class="task-details">
+      <div class="task-text">${task.text}</div>
+      <div class="task-meta">${linkHTML}${imageHTML}</div>
+    </div>
+    <div class="task-actions">
+      <div class="task-left-actions">
+        <label class="custom-checkbox" for="task-${index}">
+          <svg fill="var(--text-muted)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+            <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+          </svg>
+        </label>
+      </div>
+      <button class="delete-button" onclick="deleteTask(${index})">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+      </button>
+    </div>
+  `;
 
   li.appendChild(taskHeader);
   li.appendChild(taskContent);
@@ -178,8 +191,9 @@ function createTaskHTML(task, index) {
 
 // ===== TOGGLE EXPANSION =====
 function toggleTaskExpansion(index) {
-  tasks[index].expanded = !tasks[index].expanded;
-  db.ref("tasks/" + tasks[index].id).update({ expanded: tasks[index].expanded });
+  const taskId = tasks[index].id;
+  localExpansionState[taskId] = !localExpansionState[taskId];
+  renderTasks();
 }
 
 // ===== MODALS =====

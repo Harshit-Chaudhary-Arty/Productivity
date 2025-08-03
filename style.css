@@ -184,7 +184,20 @@ form{
     align-items: center;
     justify-content: space-evenly;
     cursor: pointer;
+
+
+
+    /* white-space: nowrap;
+    overflow: hidden; */
+    /* text-overflow: ellipsis; */
 }
+
+.courseLabelText{
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
 
 .typesLabel:hover, .courseLabel:hover{
     background-color: var(--secondary-color);
@@ -196,6 +209,8 @@ form{
     height: 25px;
     width: 25px;
     font-size: 25px;
+    flex-shrink: 0;
+
 }
 
 .typesDropdown, .courseDropdown {
@@ -227,13 +242,29 @@ form{
 
 .typesDropdown li, .courseDropdown li{
     display: block;
-    padding: 10px 40px;
+    padding: 10px 35px;
     display: flex;
     align-items: center;
     color: var(--text-muted);
     border-radius: 15px;
     cursor: pointer;
+
+
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;  */
+    /* max-width: 200px; */
+    /* display: inline-block; */
+    /* vertical-align: middle; */
 }
+
+.courseText {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    
+}   
+
 
 .typesDropdown li:hover, .courseDropdown li:hover{
     background-color: var(--secondary-color);
@@ -243,13 +274,33 @@ form{
 
 /* ACCENT BOXES */
 
-.typesDropdown li .accentBox, .courseDropdown li .accentBox{
+.courseDropdown li .accentBox{
+    background-color: var(--text-muted);
+    border-radius: 25%;
+    height: 16px;
+    width: 16px;
+    margin-right: 10%;
+    margin-left: 0%;
+    flex-shrink: 0;
+}
+
+.typesDropdown li .accentBox{
     background-color: var(--text-muted);
     border-radius: 25%;
     height: 16px;
     width: 16px;
     margin-right: 25%;
-    margin-left: 5%;
+    margin-left: 10%;
+    flex-shrink: 0;
+
+
+}
+
+#selectedCourseAccent{
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+
 }
 
 .typesDropdown li #boxType1{
@@ -287,7 +338,7 @@ form{
 .courseDropdown li #boxCourse16{ background-color: #FFB74D; }
 */
 
-.courseDropdown li #boxCourse1{ background-color: var(--hover-color); }
+/* .courseDropdown li #boxCourse1{ background-color: var(--hover-color); } */
 
 /* ADD IMG & LINK BUTTON */
 
