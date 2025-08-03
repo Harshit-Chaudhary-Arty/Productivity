@@ -130,3 +130,18 @@
 
 ### Added
 - Alert modal with warning icon to prompt user when task is added without description
+
+
+
+
+## [0.9.2] - 2025-08-03
+
+### Added
+- Expandable task options for cleaner look in multi-day version : input field now expands to show task options only on click
+- Scroll support for the course selection dropdown with overflow handling for long list
+
+### Changed
+- Task options (course, type, image, link, submit) now remain hidden until the input field is interacted with
+
+### Fixed
+- Prevented form from collapsing when user clicks inside dropdowns or buttons (collapse only triggers on outside click)

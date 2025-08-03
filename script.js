@@ -248,11 +248,32 @@ function setupEventListeners() {
     }
   });
 
+
+
+  document.getElementById('input-task').addEventListener('focus', () => {
+  document.getElementById('taskOptions').classList.add('show');
+  });
+
+  document.addEventListener('click', function (e) {
+  const form = document.querySelector('form');
+  const input = document.getElementById('input-task');
+  const taskOptions = document.getElementById('taskOptions');
+
+  // If user clicks outside the form, and input is empty → collapse
+  if (!form.contains(e.target) && input.value.trim() === "") {
+    taskOptions.classList.remove('show');
+  }
+  }); 
+
   document.getElementById('addLink-button').addEventListener('click', openLinkModal);
   setupDropdown();
   setupCourseDropdown();
   setupModal();
 }
+
+
+
+
 
 // ===== LINK MODAL =====
 function openLinkModal() {

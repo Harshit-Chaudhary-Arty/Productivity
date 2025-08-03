@@ -50,135 +50,151 @@
         <ul id="task-list">
             <!-- Tasks will be dynamically added here -->
         </ul>
+     
         
-        <form action="">
-            <input type="text" id="input-task" placeholder="Add task" autocomplete="off">
-            
-            <div class="options">
+
+
+         <form action="">
+                <input type="text" id="input-task" placeholder="Add task +" autocomplete="off">
+
+                <!-- 🆕 Wrap the hidden part -->
+            <div class="expanded-options" id="taskOptions">
+
+                <div class="options">
                 <!-- First row: Course and Add Link -->
-                <div class="options-row">
-                    <div class="courseType">
-                        <span class="courseLabel">
-                          <div class="accentBox" id="selectedCourseAccent"></div>
-                          <span class="courseLabelText">Select Course</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path></svg>
-                        </span> 
+                    <div class="options-row">
+                            <div class="courseType">
+                                <span class="courseLabel">
+                                <div class="accentBox" id="selectedCourseAccent"></div>
+                                <span class="courseLabelText">Select Course</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path></svg>
+                                </span> 
 
-                        <ul class="courseDropdown">
+                                <ul class="courseDropdown">
+                                    
+                                    <li id="course1" class="courses">
+                                    <div class="accentBox" id="boxCourse1"></div>
+                                    <span class="courseText">CRC581- Comparative Study of Religion</span>
+                                    </li>
+                                    <li id="course2" class="courses">
+                                    <div class="accentBox" id="boxCourse2"></div>
+                                    <span class="courseText">EGC581- Design Engineering Project</span>
+                                    </li>
+                                    <li id="course3" class="courses">
+                                    <div class="accentBox" id="boxCourse3"></div>
+                                    <span class="courseText">EGC582- Practical Training</span>
+                                    </li>
+                                    <li id="course4" class="courses">
+                                    <div class="accentBox" id="boxCourse4"></div>
+                                    <span class="courseText">EEM501- Linear Control Engineering</span>
+                                    </li>
+                                    <li id="course5" class="courses">
+                                    <div class="accentBox" id="boxCourse5"></div>
+                                    <span class="courseText">EEM502- Control Engineering Lab</span>
+                                    </li>
+                                    <li id="course6" class="courses">
+                                    <div class="accentBox" id="boxCourse6"></div>
+                                    <span class="courseText">EEM503- Electrical Machines II</span>
+                                    </li>
+                                    <li id="course7" class="courses">
+                                    <div class="accentBox" id="boxCourse7"></div>
+                                    <span class="courseText">EEM504- Machines Lab</span>
+                                    </li>
+                                    <li id="course8" class="courses">
+                                    <div class="accentBox" id="boxCourse8"></div>
+                                    <span class="courseText">EEM505- Analog Electronics</span>
+                                    </li>
+                                    <li id="course9" class="courses">
+                                    <div class="accentBox" id="boxCourse9"></div>
+                                    <span class="courseText">EEM506- Digital Systems</span>
+                                    </li>
+                                    <li id="course10" class="courses">
+                                    <div class="accentBox" id="boxCourse10"></div>
+                                    <span class="courseText">EEM509- Applied Systems Engineering</span>
+                                    </li>
+                                    <li id="course11" class="courses">
+                                    <div class="accentBox" id="boxCourse11"></div>
+                                    <span class="courseText">EEM510- Digital System Lab.</span>
+                                    </li>
+                                    <li id="course12" class="courses">
+                                    <div class="accentBox" id="boxCourse12"></div>
+                                    <span class="courseText">EEM511- ANALOG ICS & SYSTEMS</span>
+                                    </li>
+                                    <li id="course13" class="courses">
+                                    <div class="accentBox" id="boxCourse13"></div>
+                                    <span class="courseText">EEM512- ANALOG ICS & SYSTEMS LAB</span>
+                                    </li>
+                                    <li id="course14" class="courses">
+                                    <div class="accentBox" id="boxCourse14"></div>
+                                    <span class="courseText">EEM513- Introduction to Machine Learning</span>
+                                    </li>
+                                    <li id="course15" class="courses">
+                                    <div class="accentBox" id="boxCourse15"></div>
+                                    <span class="courseText">EEM514- ML Lab</span>
+                                    </li>
+                                    <li id="course16" class="courses">
+                                    <div class="accentBox" id="boxCourse16"></div>
+                                    <span class="courseText">MAM581- Discrete Mathematics</span>
+                                    </li>
+                                    <li id="course17" class="courses">
+                                    <div class="accentBox" id="boxCourse17"></div>
+                                    <span class="courseText">MAM582- Numerical Analysis</span>
+                                    </li>
+
+                                
+                                    
+
+                                </ul>
+                            </div>
                             
-                            <li id="course1" class="courses">
-                            <div class="accentBox" id="boxCourse1"></div>
-                            <span class="courseText">CRC581- Comparative Study of Religion</span>
-                            </li>
-                            <li id="course2" class="courses">
-                            <div class="accentBox" id="boxCourse2"></div>
-                            <span class="courseText">EGC581- Design Engineering Project</span>
-                            </li>
-                            <li id="course3" class="courses">
-                            <div class="accentBox" id="boxCourse3"></div>
-                            <span class="courseText">EGC582- Practical Training</span>
-                            </li>
-                            <li id="course4" class="courses">
-                            <div class="accentBox" id="boxCourse4"></div>
-                            <span class="courseText">EEM501- Linear Control Engineering</span>
-                            </li>
-                            <li id="course5" class="courses">
-                            <div class="accentBox" id="boxCourse5"></div>
-                            <span class="courseText">EEM502- Control Engineering Lab</span>
-                            </li>
-                            <li id="course6" class="courses">
-                            <div class="accentBox" id="boxCourse6"></div>
-                            <span class="courseText">EEM503- Electrical Machines II</span>
-                            </li>
-                            <li id="course7" class="courses">
-                            <div class="accentBox" id="boxCourse7"></div>
-                            <span class="courseText">EEM504- Machines Lab</span>
-                            </li>
-                            <li id="course8" class="courses">
-                            <div class="accentBox" id="boxCourse8"></div>
-                            <span class="courseText">EEM505- Analog Electronics</span>
-                            </li>
-                            <li id="course9" class="courses">
-                            <div class="accentBox" id="boxCourse9"></div>
-                            <span class="courseText">EEM506- Digital Systems</span>
-                            </li>
-                            <li id="course10" class="courses">
-                            <div class="accentBox" id="boxCourse10"></div>
-                            <span class="courseText">EEM509- Applied Systems Engineering</span>
-                            </li>
-                            <li id="course11" class="courses">
-                            <div class="accentBox" id="boxCourse11"></div>
-                            <span class="courseText">EEM510- Digital System Lab.</span>
-                            </li>
-                            <li id="course12" class="courses">
-                            <div class="accentBox" id="boxCourse12"></div>
-                            <span class="courseText">EEM511- ANALOG ICS & SYSTEMS</span>
-                            </li>
-                            <li id="course13" class="courses">
-                            <div class="accentBox" id="boxCourse13"></div>
-                            <span class="courseText">EEM512- ANALOG ICS & SYSTEMS LAB</span>
-                            </li>
-                            <li id="course14" class="courses">
-                            <div class="accentBox" id="boxCourse14"></div>
-                            <span class="courseText">EEM513- Introduction to Machine Learning</span>
-                            </li>
-                            <li id="course15" class="courses">
-                            <div class="accentBox" id="boxCourse15"></div>
-                            <span class="courseText">EEM514- ML Lab</span>
-                            </li>
-                            <li id="course16" class="courses">
-                            <div class="accentBox" id="boxCourse16"></div>
-                            <span class="courseText">MAM581- Discrete Mathematics</span>
-                            </li>
-                            <li id="course17" class="courses">
-                            <div class="accentBox" id="boxCourse17"></div>
-                            <span class="courseText">MAM582- Numerical Analysis</span>
-                            </li>
-
-                           
-                            
-
-                        </ul>
+                            <button type="button" id="addLink-button">
+                                Add Link
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.0607 8.11097L14.4749 9.52518C17.2086 12.2589 17.2086 16.691 14.4749 19.4247L14.1214 19.7782C11.3877 22.5119 6.95555 22.5119 4.22188 19.7782C1.48821 17.0446 1.48821 12.6124 4.22188 9.87874L5.6361 11.293C3.68348 13.2456 3.68348 16.4114 5.6361 18.364C7.58872 20.3166 10.7545 20.3166 12.7072 18.364L13.0607 18.0105C15.0133 16.0578 15.0133 12.892 13.0607 10.9394L11.6465 9.52518L13.0607 8.11097ZM19.7782 14.1214L18.364 12.7072C20.3166 10.7545 20.3166 7.58872 18.364 5.6361C16.4114 3.68348 13.2456 3.68348 11.293 5.6361L10.9394 5.98965C8.98678 7.94227 8.98678 11.1081 10.9394 13.0607L12.3536 14.4749L10.9394 15.8891L9.52518 14.4749C6.79151 11.7413 6.79151 7.30911 9.52518 4.57544L9.87874 4.22188C12.6124 1.48821 17.0446 1.48821 19.7782 4.22188C22.5119 6.95555 22.5119 11.3877 19.7782 14.1214Z"></path></svg>
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    
+                                    <path d="M18.364 15.536L16.95 14.12L18.364 12.708C19.9497 11.1223 19.9497 8.60948 18.364 7.02373C16.7782 5.43798 14.2654 5.43798 12.6797 7.02373L11.2655 8.43794L9.85129 7.02373C8.26554 5.43798 5.75271 5.43798 4.16696 7.02373C2.58121 8.60948 2.58121 11.1223 4.16696 12.708L5.58117 14.12L4.16696 15.536C2.58121 17.1218 2.58121 19.6346 4.16696 21.2204C5.75271 22.8061 8.26554 22.8061 9.85129 21.2204L11.2655 19.8062L12.6797 21.2204C14.2654 22.8061 16.7782 22.8061 18.364 21.2204C19.9497 19.6346 19.9497 17.1218 18.364 15.536ZM16.95 8.43794C17.7426 9.23052 17.7426 10.5089 16.95 11.3015L15.536 12.708L12.6797 9.85168L14.0939 8.43794C14.8865 7.64536 16.1649 7.64536 16.95 8.43794ZM5.58117 8.43794C6.37375 7.64536 7.65211 7.64536 8.44469 8.43794L9.85129 9.85168L6.99497 12.708L5.58117 11.3015C4.78859 10.5089 4.78859 9.23052 5.58117 8.43794ZM8.44469 19.8062C7.65211 20.5988 6.37375 20.5988 5.58117 19.8062C4.78859 19.0136 4.78859 17.7353 5.58117 16.9427L6.99497 15.536L9.85129 18.3923L8.44469 19.8062ZM16.95 19.8062C16.1649 20.5988 14.8865 20.5988 14.0939 19.8062L12.6797 18.3923L15.536 15.536L16.95 16.9427C17.7426 17.7353 17.7426 19.0136 16.95 19.8062Z"></path>
+                                </svg> -->
+                            </button>
                     </div>
                     
-                    <button type="button" id="addLink-button">
-                        Add Link
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.0607 8.11097L14.4749 9.52518C17.2086 12.2589 17.2086 16.691 14.4749 19.4247L14.1214 19.7782C11.3877 22.5119 6.95555 22.5119 4.22188 19.7782C1.48821 17.0446 1.48821 12.6124 4.22188 9.87874L5.6361 11.293C3.68348 13.2456 3.68348 16.4114 5.6361 18.364C7.58872 20.3166 10.7545 20.3166 12.7072 18.364L13.0607 18.0105C15.0133 16.0578 15.0133 12.892 13.0607 10.9394L11.6465 9.52518L13.0607 8.11097ZM19.7782 14.1214L18.364 12.7072C20.3166 10.7545 20.3166 7.58872 18.364 5.6361C16.4114 3.68348 13.2456 3.68348 11.293 5.6361L10.9394 5.98965C8.98678 7.94227 8.98678 11.1081 10.9394 13.0607L12.3536 14.4749L10.9394 15.8891L9.52518 14.4749C6.79151 11.7413 6.79151 7.30911 9.52518 4.57544L9.87874 4.22188C12.6124 1.48821 17.0446 1.48821 19.7782 4.22188C22.5119 6.95555 22.5119 11.3877 19.7782 14.1214Z"></path></svg>
-                        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <!-- Second row: Type and Add Image -->
+                    <div class="options-row-second">
+                            <div class="taskType">
+                                <span class="typesLabel">
+                                <div class="accentBox" id="selectedAccent"></div>
+                                <span class="labelText">Select Type</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path></svg>
+                                </span> 
+
+                                <ul class="typesDropdown">
+                                    <li id="type1" class="types"> <div class="accentBox" id="boxType1"></div> DHA  </li>
+                                    <li id="type2" class="types"> <div class="accentBox" id="boxType2"></div> CA   </li>
+                                    <li id="type3" class="types"> <div class="accentBox" id="boxType3"></div> AA   </li>
+                                    <li id="type4" class="types"> <div class="accentBox" id="boxType4"></div> CT   </li>
+                                </ul>
+                            </div>
                             
-                            <path d="M18.364 15.536L16.95 14.12L18.364 12.708C19.9497 11.1223 19.9497 8.60948 18.364 7.02373C16.7782 5.43798 14.2654 5.43798 12.6797 7.02373L11.2655 8.43794L9.85129 7.02373C8.26554 5.43798 5.75271 5.43798 4.16696 7.02373C2.58121 8.60948 2.58121 11.1223 4.16696 12.708L5.58117 14.12L4.16696 15.536C2.58121 17.1218 2.58121 19.6346 4.16696 21.2204C5.75271 22.8061 8.26554 22.8061 9.85129 21.2204L11.2655 19.8062L12.6797 21.2204C14.2654 22.8061 16.7782 22.8061 18.364 21.2204C19.9497 19.6346 19.9497 17.1218 18.364 15.536ZM16.95 8.43794C17.7426 9.23052 17.7426 10.5089 16.95 11.3015L15.536 12.708L12.6797 9.85168L14.0939 8.43794C14.8865 7.64536 16.1649 7.64536 16.95 8.43794ZM5.58117 8.43794C6.37375 7.64536 7.65211 7.64536 8.44469 8.43794L9.85129 9.85168L6.99497 12.708L5.58117 11.3015C4.78859 10.5089 4.78859 9.23052 5.58117 8.43794ZM8.44469 19.8062C7.65211 20.5988 6.37375 20.5988 5.58117 19.8062C4.78859 19.0136 4.78859 17.7353 5.58117 16.9427L6.99497 15.536L9.85129 18.3923L8.44469 19.8062ZM16.95 19.8062C16.1649 20.5988 14.8865 20.5988 14.0939 19.8062L12.6797 18.3923L15.536 15.536L16.95 16.9427C17.7426 17.7353 17.7426 19.0136 16.95 19.8062Z"></path>
-                        </svg> -->
-                    </button>
+                            <input type="file" id="imageInput" accept="image/*" hidden>
+                            <label for="imageInput" id="addImage-button">
+                            Add Image
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21 15V18H24V20H21V23H19V20H16V18H19V15H21ZM21.0082 3C21.556 3 22 3.44495 22 3.9934L22.0007 13.3417C21.3749 13.1204 20.7015 13 20 13V5H4L4.001 19L13.2929 9.70715C13.6528 9.34604 14.22 9.31823 14.6123 9.62322L14.7065 9.70772L18.2521 13.2586C15.791 14.0069 14 16.2943 14 19C14 19.7015 14.1204 20.3749 14.3417 21.0007L2.9918 21C2.44405 21 2 20.5551 2 20.0066V3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082ZM8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7Z"></path>
+                            </svg>
+                            </label>
+                    </div>
                 </div>
+                    
                 
-                <!-- Second row: Type and Add Image -->
-                <div class="options-row-second">
-                    <div class="taskType">
-                        <span class="typesLabel">
-                          <div class="accentBox" id="selectedAccent"></div>
-                          <span class="labelText">Select Type</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path></svg>
-                        </span> 
-
-                        <ul class="typesDropdown">
-                            <li id="type1" class="types"> <div class="accentBox" id="boxType1"></div> DHA  </li>
-                            <li id="type2" class="types"> <div class="accentBox" id="boxType2"></div> CA   </li>
-                            <li id="type3" class="types"> <div class="accentBox" id="boxType3"></div> AA   </li>
-                            <li id="type4" class="types"> <div class="accentBox" id="boxType4"></div> CT   </li>
-                        </ul>
-                    </div>
-                    
-                    <input type="file" id="imageInput" accept="image/*" hidden>
-                    <label for="imageInput" id="addImage-button">
-                    Add Image
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M21 15V18H24V20H21V23H19V20H16V18H19V15H21ZM21.0082 3C21.556 3 22 3.44495 22 3.9934L22.0007 13.3417C21.3749 13.1204 20.7015 13 20 13V5H4L4.001 19L13.2929 9.70715C13.6528 9.34604 14.22 9.31823 14.6123 9.62322L14.7065 9.70772L18.2521 13.2586C15.791 14.0069 14 16.2943 14 19C14 19.7015 14.1204 20.3749 14.3417 21.0007L2.9918 21C2.44405 21 2 20.5551 2 20.0066V3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082ZM8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7Z"></path>
-                    </svg>
-                    </label>
-                </div>
+                <button id="add-button">ADD <i class="ri-add-line"></i></button>
             </div>
-            <button id="add-button">ADD <i class="ri-add-line"></i></button>
         </form>
+
+
+        
+        
+             
+        
+
     </div>
 
 
